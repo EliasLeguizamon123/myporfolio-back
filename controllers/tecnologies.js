@@ -1,10 +1,20 @@
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
+const tecnology = require('../models/tecnologies');
 
 const getTecnologies = async (req, res) => {
+//   await prisma.$connect();
+//   const tecnologies = await tecnology.find();
+//   res.status(200).json({
+//     status: 'success',
+//     data: tecnologies
+//   });
+//   await prisma.$disconnect();
+// };
   try{
     await prisma.$connect();
     const tecnologies = await prisma.tecnologies.findMany();
+    await prisma.$disconnect();
     res.status(200).json({
       status: 'success',
       data: tecnologies
@@ -14,6 +24,7 @@ const getTecnologies = async (req, res) => {
       status: 'fail',
       message: err
     });
+    await prisma.$disconnect();
   }
 };
 const postTecnologies = async (req, res) => {
@@ -35,4 +46,4 @@ const postTecnologies = async (req, res) => {
   }
 };
 
-module.exports = { getTecnologies };
+module.exports = { getTecnologies, postTecnologies };

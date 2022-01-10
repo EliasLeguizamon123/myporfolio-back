@@ -3,9 +3,10 @@ const router = Router();
 const tecnologies = require('../models/tecnologies');
 
 // * Controllers
-const { getTecnologies } = require('../controllers/tecnologies');
+const { getTecnologies, postTecnologies } = require('../controllers/tecnologies');
 
 //* Routes
 router.get('/', getTecnologies);
+router.post('/', postTecnologies);
 
 module.exports = router;

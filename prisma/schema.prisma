@@ -12,3 +12,10 @@ model sections {
   id    String @id @default(dbgenerated()) @map("_id") @db.ObjectId
   title String
 }
+
+model tecnologies {
+  id   String @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  logo String
+  name String
+  url  String
+}

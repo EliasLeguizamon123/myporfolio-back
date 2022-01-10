@@ -9,11 +9,13 @@ const getSections = async (req, res) => {
             status: 'success',
             data: sections
         });
+        await prisma.$disconnect();
     } catch(err){
         res.status(404).json({
             status: 'fail',
             message: err
         });
+        await prisma.$disconnect();
     }
 };
 
