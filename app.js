@@ -6,8 +6,9 @@ const path = require('path');
 const app = express();
 
 // * Settings
-require('dotenv').config({ path: './.env' })
+require('dotenv').config({ path: './.env' });
 app.set('port', process.env.PORT || 3000);
+require('./database/database.js');
 app.use(cors());
 
 // * Middlewares
