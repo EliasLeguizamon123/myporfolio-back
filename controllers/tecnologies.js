@@ -3,14 +3,6 @@ const prisma = new PrismaClient();
 const tecnology = require('../models/tecnologies');
 
 const getTecnologies = async (req, res) => {
-//   await prisma.$connect();
-//   const tecnologies = await tecnology.find();
-//   res.status(200).json({
-//     status: 'success',
-//     data: tecnologies
-//   });
-//   await prisma.$disconnect();
-// };
   try{
     await prisma.$connect();
     const tecnologies = await prisma.tecnologies.findMany();
