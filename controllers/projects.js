@@ -21,12 +21,13 @@ const getProjects = async (req, res) => {
 };
 const getProject = async (req, res) => {
   try{
-    const { id } = req.params;
+    const projectId = req.params.id;
     await prisma.$connect();
-    const project = await prisma.projects.findOne({
-      where: { id }
+    console.log(projectId);
+    const project = await prisma.projects.findUnique({
+      where: { id: projectId }
     });
-    res.status(200).json({
+    res.status(201).json({
       status: 'success',
       data: project
     });
@@ -35,11 +36,12 @@ const getProject = async (req, res) => {
   catch(err){
     res.status(404).json({
       status: 'fail',
-      message: err
+      data: 'pingo'
     });
     await prisma.$disconnect();
   }
 };
+
 
 const postProject = async (req, res) => {
   try{
