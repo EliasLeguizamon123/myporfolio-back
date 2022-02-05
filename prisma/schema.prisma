@@ -28,6 +28,8 @@ model projects {
   description String
   images String[]
   tools String[]
+  demo String
+  repo String
 }
 model timeline{
   id  String @id @default(dbgenerated()) @map("_id") @db.ObjectId
