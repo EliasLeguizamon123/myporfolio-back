@@ -7,6 +7,7 @@ datasource db {
   provider = "mongodb"
   url      = env("DB_URI")
 }
+
 // command to add new models in prisma:
 //      npx prisma generate
 //      npx prisma db push
@@ -22,20 +23,22 @@ model tecnologies {
   name String
   url  String
 }
+
 model projects {
-  id  String @id @default(dbgenerated()) @map("_id") @db.ObjectId
-  title String
-  description String
-  images String[]
-  tools String[]
-  demo String
-  repo String
+  id          String   @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  title       String   @default("")
+  description String   @default("")
+  images      String[]
+  tools       String[]
+  demo        String   @default("")
+  repo        String   @default("")
 }
-model timeline{
-  id  String @id @default(dbgenerated()) @map("_id") @db.ObjectId
-  title String //this is a date, year to year
-  cardTitle String //this is the title company
-  url String //this is the url of the company
-  cardSubtitle String //this is my position name
-  cardDetailedText String //this is the description of the position
+
+model timeline {
+  id               String @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  title            String @default("")//this is a date, year to year
+  cardTitle        String @default("")//this is the title company
+  url              String @default("")//this is the url of the company
+  cardSubtitle     String @default("")//this is my position name
+  cardDetailedText String @default("")//this is the description of the position
 }
