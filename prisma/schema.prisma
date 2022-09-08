@@ -13,19 +13,19 @@ datasource db {
 //      npx prisma db push
 
 model sections {
-  id    String @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
   title String
 }
 
 model tecnologies {
-  id   String @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
   logo String
   name String
   url  String
 }
 
 model projects {
-  id          String   @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
   title       String   @default("")
   description String   @default("")
   images      String[]
@@ -35,7 +35,7 @@ model projects {
 }
 
 model timeline {
-  id               String @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  id               String @id @default(auto()) @map("_id") @db.ObjectId
   title            String @default("")//this is a date, year to year
   cardTitle        String @default("")//this is the title company
   url              String @default("")//this is the url of the company
